@@ -43,7 +43,7 @@ mkdir -p ./data/raw
 echo -e "${GREEN}Status: created folder: ./data/raw${NC}"
 
 # *2. Move the files in ./rawdata directory to ./data/raw
-## *changed "COPY: to files in ./rawdata/* into /data/raw so something was accidientally deleted during th process we can always retrieve from here ##
+## *Change to "COPY: to files in ./rawdata/* into /data/raw in case something are accidientally deleted and we dont need to run 'unzipped' 
 cp ./rawdata/* ./data/raw
 echo -e "${GREEN}Status: copied files${NC}"
 
