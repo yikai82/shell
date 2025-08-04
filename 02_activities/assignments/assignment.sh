@@ -1,32 +1,32 @@
 #!/bin/bash
-set -x # disable debug trace 
+# set -x # disable debug trace 
 
-# # === COLORS ===
-# RED='\033[1;31m'
-# GREEN='\033[1;32m'
-# YELLOW='\033[1;33m'
-# BLUE='\033[0;34m'
-# BOLD_BLUE='\033[1;34m'  
-# MAGENTA='\033[0;35m'
-# NC='\033[0m' # No Color
+# === COLORS ===
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+BOLD_BLUE='\033[1;34m'  
+MAGENTA='\033[0;35m'
+NC='\033[0m' # No Color
 
-echo -e "############################################${NC}"
-echo -e "# DSI CONSULTING INC. Project setup script #${NC}"
-echo -e "############################################${NC}"
-echo -e "# This script creates standard analysis and output directories${NC}"
-echo -e "# for a new project. It also creates a README file with the${NC}"
-echo -e "# project name and a brief description of the project.${NC}"
-echo -e "# Then it unzips the raw data provided by the client.${NC}"
+echo -e "${MAGENTA}############################################${NC}"
+echo -e "${MAGENTA}# DSI CONSULTING INC. Project setup script #${NC}"
+echo -e "${MAGENTA}############################################${NC}"
+echo -e "${MAGENTA}# This script creates standard analysis and output directories${NC}"
+echo -e "${MAGENTA}# for a new project. It also creates a README file with the${NC}"
+echo -e "${MAGENTA}# project name and a brief description of the project.${NC}"
+echo -e "${MAGENTA}# Then it unzips the raw data provided by the client.${NC}"
 
 
 echo -e "🛠️ Version 1.0" 
-echo -e "========================================================${NC}"
+echo -e "${BOLD_BLUE}========================================================${NC}"
 echo -e "Feature Summary                                        |"
 echo -e "|------------------------------------------------------|"
-echo -e "| Remove                                               ${NC}|"
+echo -e "${BOLD_BLUE}| Color Coded                                          ${NC}|"
 echo -e "| 'echo -e' for debuggung                              ${NC}|"
 echo -e "| Interactive Prompt                                   ${NC}|"
-echo -e "========================================================${NC}\n"
+echo -e "${BOLD_BLUE}========================================================${NC}\n"
 
 
 # Interaction Prompt 
@@ -53,7 +53,7 @@ touch analysis/main.py
 # download client data
 curl -Lo rawdata.zip https://github.com/UofT-DSI/shell/raw/refs/heads/main/02_activities/assignments/rawdata.zip
 unzip -q rawdata.zip
-echo -e "Status: file unzipped${NC}"
+echo -e "${GREEN}Status: file unzipped${NC}"
 
 
 
@@ -62,15 +62,15 @@ echo -e "Status: file unzipped${NC}"
 
 # 1. Create a directory named data
 mkdir -p ./data/raw
-echo -e "Status: created folder: ./data/raw${NC}"
+echo -e "${GREEN}Status: created folder: ./data/raw${NC}"
 
 # *2. Move the files in ./rawdata directory to ./data/raw
 ## *Change to "COPY: to files in ./rawdata/* into /data/raw in case something are accidientally deleted and we dont need to run 'unzipped' 
 cp ./rawdata/* ./data/raw
-echo -e "Status: copied files${NC}"
+echo -e "${GREEN}Status: copied files${NC}"
 
 # 3. List the contents of the ./data/raw directory
-echo -e "Status: listing the content in the working folder:./data/raw${NC}"
+echo -e "${GREEN}Status: listing the content in the working folder:./data/raw${NC}"
 ls -r ./data/raw
 
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
@@ -80,7 +80,7 @@ mkdir -p ./data/processed/event_logs
 
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
 rm ./data/raw/*ipaddr*
-echo -e "Status: deleting privacy related files${NC}"
+echo -e "${YELLOW}{Status: deleting privacy related files${NC}"
 ls -r ./data/raw/*ipaddr* # it should return nothing and show as warming
 
 
@@ -93,7 +93,7 @@ cp ./data/raw/user_*.log  ./data/processed/user_logs
 cp ./data/raw/event_*.log  ./data/processed/event_logs
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-echo -e "Status: creating inventory.txt${NC}"
+echo -e "${GEEN}{Status: creating inventory.txt${NC}"
 ls -R ./data/processed > ./data/inventory.txt
 ls -R ./data/processed # output to terminal for visual check
 
@@ -102,4 +102,4 @@ rm -rf ./rawdata
 
 ###########################################
 
-echo -e "Status: Project setup is complete!${NC}"
+echo -e "${GREEN}Status: Project setup is complete!${NC}"
