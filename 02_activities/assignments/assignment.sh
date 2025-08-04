@@ -6,6 +6,7 @@ RED='\033[1;31m'
 GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+BOLD_BLUE='\033[1;34m'  
 MAGENTA='\033[0;35m'
 NC='\033[0m' # No Color
 
@@ -16,6 +17,26 @@ echo -e "${MAGENTA}# This script creates standard analysis and output directorie
 echo -e "${MAGENTA}# for a new project. It also creates a README file with the${NC}"
 echo -e "${MAGENTA}# project name and a brief description of the project.${NC}"
 echo -e "${MAGENTA}# Then it unzips the raw data provided by the client.${NC}"
+
+
+echo -e "${BOLD_BLUE}🛠️ Version 1.0" 
+echo -e "${BOLD_BLUE}========================================================${NC}"
+echo -e "|${BOLD} Feature Summary                                      |"
+echo -e "|------------------------------------------------------|"
+echo -e "|${BOLD} Colored Coded                                        ${NC}|"
+echo -e "|${BOLD} 'echo -e' for debuggung                              ${NC}|"
+echo -e "|${BOLD} Interactive Prompt                                   ${NC}|"
+echo -e "${BLUE}========================================================${NC}\n"
+
+
+# Interaction Prompt 
+read -p "Do you want to proceed with the script? (y/n): " answer
+case "$answer" in
+    [Yy]* ) echo "Proceeding...";;
+    [Nn]* ) echo "Exiting."; exit 1;;
+    * ) echo "Please answer yes (y) or no (n)."; exit 1;;
+esac
+
 
 if [ -d newproject ]; then
   echo "Directory 'newproject' already exists. Please remove it before running this script."
