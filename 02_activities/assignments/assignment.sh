@@ -61,45 +61,52 @@ echo -e "${GREEN}Status: file unzipped${NC}"
 # Complete assignment here
 
 # 1. Create a directory named data
-mkdir -p ./data/raw
-echo -e "${GREEN}Status: created folder: ./data/raw${NC}"
+mkdir -p ./data
+echo -e "${GREEN}Status: created folder: ./data${NC}"
 
-# *2. Move the files in ./rawdata directory to ./data/raw
-## *Change to "COPY: to files in ./rawdata/* into /data/raw in case something are accidientally deleted and we dont need to run 'unzipped' 
-cp ./rawdata/* ./data/raw
-echo -e "${GREEN}Status: copied files${NC}"
+# 2. Move the ./rawdata directory to ./data/raw
+mkdir -p ./data/raw
+mv ./rawdata/* ./data/raw
+echo -e "${GREEN}Status: files moved to ./data/raw${NC}"
 
 # 3. List the contents of the ./data/raw directory
 echo -e "${GREEN}Status: listing the content in the working folder:./data/raw${NC}"
-ls -r ./data/raw
+ls ./data/raw/
 
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
 mkdir -p ./data/processed/server_logs
 mkdir -p ./data/processed/user_logs
 mkdir -p ./data/processed/event_logs
-
-# 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
-rm ./data/raw/*ipaddr*
-echo -e "${YELLOW}{Status: deleting privacy related files${NC}"
-ls -r ./data/raw/*ipaddr* # it should return nothing and show as warming
-
-
+echo -e "${GREEN}Status: create the following directories:
+            ./data/processed/server_logs
+            ./data/processed/user_logs
+            ./data/processed/event_logs
+            ${NC}"
 
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
 cp ./data/raw/server_*.log  ./data/processed/server_logs
+
 
 # 6. Repeat the above step for user logs and event logs
 cp ./data/raw/user_*.log  ./data/processed/user_logs
 cp ./data/raw/event_*.log  ./data/processed/event_logs
 
-# 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-echo -e "${GEEN}{Status: creating inventory.txt${NC}"
-ls -R ./data/processed > ./data/inventory.txt
-ls -R ./data/processed # output to terminal for visual check
+# 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
+rm ./data/raw/*ipaddr*
+rm ./data/processed/user_logs/*ipaddr*
+echo -e "${YELLOW}Status: deleting privacy related files${NC}"
+ls -R ./data/processed | grep ipaddr
 
-# *9. Delete the rawdata folder
-rm -rf ./rawdata
+
+ls -r ./data/raw/*ipaddr* # it should return nothing and show as warming
+
+
+# 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
+echo -e "${GEEN}Status: creating inventory.txt${NC}"
+# ls -R ./data/processed > ./data/inventory.txt
+# ls -R ./data/processed # output to terminal for visual check
+
+find ./data/processed -type f > ./data/inventory.txt
 
 ###########################################
-
 echo -e "${GREEN}Status: Project setup is complete!${NC}"
