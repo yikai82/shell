@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x # debug trace 
+set -x # debug trace 
 
 # === COLORS ===
 GREEN='\033[1;32m'; YELLOW='\033[1;33m'; MAGENTA='\033[0;35m'; NC='\033[0m'
@@ -71,7 +71,7 @@ ls -R ./data/processed | grep ipaddr
 
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-echo -e "${GEEN}Status: creating inventory.txt${NC}"
+echo -e "${GREEN}Status: creating inventory.txt${NC}"
 # ls -R ./data/processed > ./data/inventory.txt
 # ls -R ./data/processed # output to terminal for visual check
 
