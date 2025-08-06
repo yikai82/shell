@@ -3,7 +3,6 @@ set -x # debug trace ON
 
 # === COLORS ===
 GREEN='\033[1;32m'; YELLOW='\033[1;33m'; MAGENTA='\033[0;35m'; NC='\033[0m'
-
 echo -e "${MAGENTA}############################################${NC}"
 echo -e "${MAGENTA}# DSI CONSULTING INC. Project setup script #${NC}"
 echo -e "${MAGENTA}############################################${NC}"
@@ -38,7 +37,7 @@ echo -e "${GREEN}Status: created folder: ./data${NC}"
 
 # 2. Move the ./rawdata directory to ./data/raw
 mkdir data/raw
-mv rawdata/* data/raw
+mv rawdata data/raw
 echo -e "${GREEN}Status: files moved to ./data/raw${NC}"
 
 # 3. List the contents of the ./data/raw directory
