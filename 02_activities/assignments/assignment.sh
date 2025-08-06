@@ -1,9 +1,8 @@
 #!/bin/bash
-set -x # debug trace 
+# set -x # debug trace 
 
 # === COLORS ===
-RED='\033[1;31m'; GREEN='\033[1;32m'; YELLOW='\033[1;33m'; BLUE='\033[0;34m'
-BOLD_BLUE='\033[1;34m'; MAGENTA='\033[0;35m'; NC='\033[0m' # No Color
+GREEN='\033[1;32m'; YELLOW='\033[1;33m'; MAGENTA='\033[0;35m'; NC='\033[0m'
 
 echo -e "${MAGENTA}############################################${NC}"
 echo -e "${MAGENTA}# DSI CONSULTING INC. Project setup script #${NC}"
@@ -29,7 +28,6 @@ touch analysis/main.py
 curl -Lo rawdata.zip https://github.com/UofT-DSI/shell/raw/refs/heads/main/02_activities/assignments/rawdata.zip
 unzip -q rawdata.zip
 echo -e "${GREEN}Status: file unzipped${NC}"
-
 
 ###########################################
 # Complete assignment here
