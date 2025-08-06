@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x # disable debug trace 
+set -x # debug trace 
 
 # === COLORS ===
 RED='\033[1;31m'
