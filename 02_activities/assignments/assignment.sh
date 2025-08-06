@@ -18,7 +18,6 @@ echo -e "${MAGENTA}# for a new project. It also creates a README file with the${
 echo -e "${MAGENTA}# project name and a brief description of the project.${NC}"
 echo -e "${MAGENTA}# Then it unzips the raw data provided by the client.${NC}"
 
-
 echo -e "🛠️ Version 1.0" 
 echo -e "${BOLD_BLUE}========================================================${NC}"
 echo -e "Feature Summary                                        |"
@@ -56,7 +55,6 @@ unzip -q rawdata.zip
 echo -e "${GREEN}Status: file unzipped${NC}"
 
 
-
 ###########################################
 # Complete assignment here
 
@@ -86,7 +84,6 @@ echo -e "${GREEN}Status: create the following directories:
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
 cp ./data/raw/server_*.log  ./data/processed/server_logs
 
-
 # 6. Repeat the above step for user logs and event logs
 cp ./data/raw/user_*.log  ./data/processed/user_logs
 cp ./data/raw/event_*.log  ./data/processed/event_logs
@@ -95,10 +92,7 @@ cp ./data/raw/event_*.log  ./data/processed/event_logs
 rm ./data/raw/*ipaddr*
 rm ./data/processed/user_logs/*ipaddr*
 echo -e "${YELLOW}Status: deleting privacy related files${NC}"
-ls -R ./data/processed | grep ipaddr
-
-
-ls -r ./data/raw/*ipaddr* # it should return nothing and show as warming
+ls -R ./data/processed | grep ipaddr 
 
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
