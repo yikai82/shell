@@ -2,13 +2,8 @@
 set -x # debug trace 
 
 # === COLORS ===
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-BOLD_BLUE='\033[1;34m'  
-MAGENTA='\033[0;35m'
-NC='\033[0m' # No Color
+RED='\033[1;31m'; GREEN='\033[1;32m'; YELLOW='\033[1;33m'; BLUE='\033[0;34m'
+BOLD_BLUE='\033[1;34m'; MAGENTA='\033[0;35m'; NC='\033[0m' # No Color
 
 echo -e "${MAGENTA}############################################${NC}"
 echo -e "${MAGENTA}# DSI CONSULTING INC. Project setup script #${NC}"
@@ -17,25 +12,6 @@ echo -e "${MAGENTA}# This script creates standard analysis and output directorie
 echo -e "${MAGENTA}# for a new project. It also creates a README file with the${NC}"
 echo -e "${MAGENTA}# project name and a brief description of the project.${NC}"
 echo -e "${MAGENTA}# Then it unzips the raw data provided by the client.${NC}"
-
-echo -e "🛠️ Version 1.0" 
-echo -e "${BOLD_BLUE}========================================================${NC}"
-echo -e "Feature Summary                                        |"
-echo -e "|------------------------------------------------------|"
-echo -e "${BOLD_BLUE}| Color Coded                                          ${NC}|"
-echo -e "| 'echo -e' for debuggung                              ${NC}|"
-echo -e "| Interactive Prompt                                   ${NC}|"
-echo -e "${BOLD_BLUE}========================================================${NC}\n"
-
-
-# Interaction Prompt 
-read -p "Do you want to proceed with the script? (y/n): " answer
-case "$answer" in
-    [Yy]* ) echo "Proceeding...";;
-    [Nn]* ) echo "Exiting."; exit 1;;
-    * ) echo "Please answer yes (y) or no (n)."; exit 1;;
-esac
-
 
 if [ -d newproject ]; then
   echo "Directory 'newproject' already exists. Please remove it before running this script."
@@ -75,6 +51,7 @@ ls ./data/raw/
 mkdir -p ./data/processed/server_logs
 mkdir -p ./data/processed/user_logs
 mkdir -p ./data/processed/event_logs
+
 echo -e "${GREEN}Status: create the following directories:
             ./data/processed/server_logs
             ./data/processed/user_logs
