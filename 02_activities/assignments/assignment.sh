@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x # debug trace OFF
+set -x # debug trace ON
 
 # === COLORS ===
 GREEN='\033[1;32m'; YELLOW='\033[1;33m'; MAGENTA='\033[0;35m'; NC='\033[0m'
