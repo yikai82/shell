@@ -33,7 +33,7 @@ echo -e "${GREEN}Status: file unzipped${NC}"
 
 # 1. Create a directory named data
 mkdir data
-echo -e "${GREEN}Status: created folder: ./data${NC}"
+echo -e "${GREEN}Status: created folder: ./edata${NC}"
 
 # 2. Move the ./rawdata directory to ./data/raw
 mkdir data/raw
@@ -44,7 +44,7 @@ echo -e "${GREEN}Status: files moved to ./data/raw${NC}"
 echo -e "${GREEN}Status: listing the content in the working folder:./data/raw${NC}"
 ls data/raw/
 
-# 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
+# 4. In ./data/processed, create the following directories:cp data/raw/server_*.log  data/processed/server_logs server_logs, user_logs, and event_logs
 mkdir -p data/processed/server_logs
 mkdir -p data/processed/user_logs
 mkdir -p data/processed/event_logs
@@ -67,7 +67,6 @@ rm data/raw/*ipaddr*
 rm data/processed/user_logs/*ipaddr*
 echo -e "${YELLOW}Status: deleting privacy related files${NC}"
 ls -R data/processed | grep ipaddr 
-
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 echo -e "${GREEN}Status: creating inventory.txt${NC}"
