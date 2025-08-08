@@ -24,7 +24,7 @@ touch analysis/main.py
 # download client data
 curl -Lo rawdata.zip https://github.com/UofT-DSI/shell/raw/refs/heads/main/02_activities/assignments/rawdata.zip
 unzip -q rawdata.zip
-echo -e "\033[1;32mStatus: file unzipped\033[0m"
+# echo -e "\033[1;32mStatus: file unzipped\033[0m"
 
 ###########################################
 # Complete assignment here
