@@ -1,13 +1,13 @@
 #!/bin/bash
 set -x # debug trace ON
 
-echo -e "\033[0;35m############################################\033[0m"
-echo -e "\033[0;35m# DSI CONSULTING INC. Project setup script #\033[0m"
-echo -e "\033[0;35m############################################\033[0m"
-echo -e "\033[0;35m# This script creates standard analysis and output directories\033[0m"
-echo -e "\033[0;35m# for a new project. It also creates a README file with the\033[0m"
-echo -e "\033[0;35m# project name and a brief description of the project.\033[0m"
-echo -e "\033[0;35m# Then it unzips the raw data provided by the client.\033[0m"
+echo -e  "############################################"
+echo -e  "# DSI CONSULTING INC. Project setup script #"
+echo -e  "############################################\033[0m"
+echo -e  "# This script creates standard analysis and output directories\033[0m"
+echo -e  "# for a new project. It also creates a README file with the\033[0m"
+echo -e  "# project name and a brief description of the project.\033[0m"
+echo -e  "# Then it unzips the raw data provided by the client.\033[0m"
 
 if [ -d newproject ]; then
   echo "Directory 'newproject' already exists. Please remove it before running this script."
@@ -53,20 +53,20 @@ echo -e "\033[1;32mStatus: create the following directories:
             \033[0m"
 
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
-cp data/raw/rawdata/server_*.log  data/processed/server_logs
+cp data/raw/server_*.log  data/processed/server_logs
 
 # 6. Repeat the above step for user logs and event logs
-cp data/raw/rawdata/user_*.log  data/processed/user_logs
-cp data/raw/rawdata/event_*.log  data/processed/event_logs
+cp data/raw/user_*.log  data/processed/user_logs
+cp data/raw/event_*.log  data/processed/event_logs
 
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
-rm data/raw/rawdata/*ipaddr*
+rm data/raw/*ipaddr*
 rm data/processed/user_logs/*ipaddr*
 echo -e "\033[1;33mStatus: deleting privacy related files\033[0m"
 ls -R data/processed | grep ipaddr 
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-echo -e "\033[1;32mStatus: creating inventory.txt\033[0m"
+echo -e "Status: creating inventory.txt"
 find data/processed -type f > data/inventory.txt
 
 ###########################################
