@@ -34,7 +34,6 @@ mkdir data
 echo -e "\033[1;32mStatus: created folder: ./edata\033[0m"
 
 # 2. Move the ./rawdata directory to ./data/raw
-mkdir data/raw
 mv rawdata data/raw
 echo -e "\033[1;32mStatus: files moved to ./data/raw\033[0m"
 
